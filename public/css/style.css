@@ -1,0 +1,228 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+/*/*body{
+  margin: 0;
+  padding: 0;
+  font-size: 100%
+  line-height:1.6;
+  font-family: Arial, Helvetica, sans-serif;
+  /*background: #262626;*/
+/*}*/
+
+/*.container1{
+  width: 100%vw;
+  padding left: 500px;
+  margin-left: 0;
+  margin-right: 0;
+  display: inline-flex;
+}*/
+
+/*.navbar{
+  padding:0;
+  margin:0;
+}*/
+
+/*#navbarSupportedContent{
+  padding-left: 100px;
+}*/
+
+.filter{
+  display: flex;
+  width: auto;
+  column-width: 150px;
+  column-gap: 30px;
+  justify-content: space-between;
+}
+
+#findBtn{
+  width: 80px;
+  height: 50px;
+  text-align: center;
+}
+
+
+#wrapper{
+  position: relative;
+  width: 100%;
+  min-height: 55vw;
+  overflow: hidden;
+}
+
+.layer {
+  position: absolute;
+  width: 100vw;
+  min-height: 55vw;
+  overflow: hidden;
+
+}
+
+.layer .content-wrap{
+  position: absolute;
+  width: 100vw;
+  min-height: 55vw;
+  background-image: url(../images/Hyundai.png);
+  background-repeat: no-repeat;
+  background-size: 55%;
+}
+
+.layer .content-body{
+  width: 40%;
+  position: absolute;
+  top:30%;
+  text-align: center;
+  transform: translateY(-50%);
+  color:black;
+
+}
+
+.layer img{
+
+  position: absolute;
+  width: 50%;
+  top: 40%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+}
+
+.layer h1{
+  font-size: 2em;
+}
+
+.bottom{
+  background: #b3b300;
+  
+ z-index:3;
+}
+
+.bottom .content-body{
+  right:5%;
+}
+
+.bottom h1{
+  color: black;
+
+}
+
+.bottom .content-body .asset{
+  padding-bottom: 50px;
+}
+
+.bottom h4{
+  color : #cc3300;
+  
+}
+
+.top{
+  background:#eee;
+  color: #222
+  z-index:2;
+  width: 50vw;
+}
+
+.logo {
+  position: relative;
+  width: 2%vw;
+  height: 2%vw;
+  left: 0;
+}
+
+.w-100 {
+  width: 100% !important;
+  height: auto;
+}
+
+.card-image{
+   height: 500px; 
+   width:auto; 
+}
+
+#prodCard{
+  width: 100% !important;
+  height: auto;	
+}
+
+#cardContent {
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: auto;
+}
+
+#pdesc{
+	text-overflow: ellipsis;
+    overflow: hidden;
+
+}
+
+#pdesc:hover {
+	text-overflow: clip;
+	overflow: visible;
+
+}
+
+.buttons{
+  display: inline-flex;
+  column-gap: 3px;
+}
+
+/*.prodImage{
+  width: 100%;
+}*/
+
+.prod{
+  width: 80%vw;
+  max-width: 98rem;
+  padding: 5rem;
+  margin-left: 80px;
+  margin-right: 80px;
+  background-color: #fff;
+  box-shadow: 0 1.4rem 8rem rgba(0,0,0, .2);
+  display: flex;
+  align-items: center;
+  border-radius: .8rem;
+}
+
+.prodCard{
+  min-width: 35rem;
+  max-width: 35rem;
+  height: 30rem;
+  transform: translateX(-8rem);
+  position: relative;
+}
+
+.prodImage{
+  
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: .8rem;
+}
+
+.prodCard::before{
+  content:'';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*background: linear-gradient(to right, rgba(0, 0, 0, .0),*/
+                                        /*rgba(0, 0, 0, .0));*/
+  /*box-shadow: .5rem .5rem  3rem 1px rgba(0,0,0, .08);*/
+  border-radius: 1rem; 
+}
+
+.prodInformation span{
+  display: block;
+  color: rgba(0,0,0, .5);
+  font-size: 1.0rem;
+  font-weight: 600;
+  margin: .5rem 0;
+}
+
+

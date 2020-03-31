@@ -1,0 +1,159 @@
+php artisan make:model Category -mrc
+php artisan make:model Manufacturer -mrc
+php artisan make:model Supplier -mrc
+php artisan make:model Product -mrc
+php artisan make:model Status -mrc
+php artisan make:model Order -mrc
+
+
+=============================================================
+Schema for users
+Schema::create('users', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('username');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->string('location');
+	    $table->string('img_path');
+	    $table->string('position');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+===============================================================
+Schema for categories
+Schema::create('categories', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->timestamps();
+        });
+==============================================================
+Schema for Suppliers
+Schema::create('suppliers', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('address');
+            $table->string('contact_person');
+            $table->string('contact_number');
+            $table->string('email');
+            $table->timestamps();
+        });
+=============================================================
+Schema for Manufacturer
+Schema::create('manufacturer', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('address');
+            $table->string('contact_person');
+            $table->string('contact_number');
+            $table->string('email');
+            $table->timestamps();
+        });
+============================================================
+Schema for Product
+
+Schema::create('products', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('product_id');
+            $table->string('manufacturer');
+            $table->string('description');
+	    $table->string('details');
+	    $table->string('img_path');
+            $table->decimal('cost', 10, 2);
+            $table->date('acquired_at');
+            $table->string('condition');
+            $table->string('serial_no');
+            $table->boolean('isAvailable')->default(true);
+            $table->integer('quantity');
+	    $table->string('location');
+            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('supplier_id');
+	    $table->unsignedBigInteger('manufacturer_id');
+            $table->timestamps();
+
+            //link the products table to the categories table via its foreign key
+            $table->foreign('category_id')
+            ->references('id')
+            ->on('categories')
+            ->onDelete('restrict')
+            ->onUpdate('cascade');
+
+            //link the products table to the suppliers table via its foreign key
+            $table->foreign('supplier_id')
+            ->references('id')
+            ->on('suppliers')
+            ->onDelete('restrict')
+            ->onUpdate('cascade');
+
+	    //link the products table to the suppliers table via its foreign key
+            $table->foreign('manufacturer_id')
+            ->references('id')
+            ->on('suppliers')
+            ->onDelete('restrict')
+            ->onUpdate('cascade');
+
+===================================================================
+Schema for Status
+
+Schema::create('statuses', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->timestamps();
+        });
+
+======================================================================
+Schema for Orders
+
+Schema::create('orders', function (Blueprint $table) {
+            
+            $table->bigIncrements('id');
+            $table->string('refNo')->unique();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('status_id');
+            $table->string('details');
+	    $table->date('requestdate');
+	    $table->decimal('total', 10, 2);
+            $table->timestamps();
+
+            //define the foreign keys 
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('restrict')
+            ->onUpdate('cascade');
+
+            $table->foreign('status_id')
+            ->references('id')
+            ->on('statuses')
+            ->onDelete('restrict')
+            ->onUpdate('cascade');
+
+
+php artisan make:migration create_order_product_table
+
+
+
+php artisan make:migration add_soft_deletes_to_products -- table=products
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
